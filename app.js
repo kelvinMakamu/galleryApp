@@ -14,8 +14,12 @@ const options = {
   useUnifiedTopology: true,
 };
 
-let mongoUrl = 'mongodb://localhost/darkroom';
-mongoose.connect(mongoUrl,options);
+// Connecting to the Database
+let mongodb_url = 'mongodb://localhost/';
+let dbName = 'darkroom';
+// Define a url to connect to the database
+const MONGODB_URI = process.env.MONGODB_URI || mongodb_url + dbName
+mongoose.connect(MONGODB_URI,options);
 let db = mongoose.connection;
 
 db.once('open',()=>{
