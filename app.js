@@ -36,7 +36,7 @@ app.use(express.json());
 app.use('/', indexRouter);
 app.use('/image', imageRouter);
 //Server PORT
-const PORT = 8150;
+const PORT = process.env.PORT || 5000;
 //Start Server
 app.listen(PORT, function(){
 	console.log(`Server is listening on port ${PORT}`);
